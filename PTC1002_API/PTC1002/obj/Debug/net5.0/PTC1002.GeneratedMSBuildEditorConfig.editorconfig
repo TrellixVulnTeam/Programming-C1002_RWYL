@@ -7,4 +7,4 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = PTC1002
-build_property.ProjectDir = G:\InternetNow\PTC1002\PTC1002_API\PTC1002\
+build_property.ProjectDir = G:\InternetNow\PTC1002\internetnow_programming_test\PTC1002_API\PTC1002\

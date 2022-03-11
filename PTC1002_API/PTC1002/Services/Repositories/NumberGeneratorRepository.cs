@@ -35,7 +35,8 @@ namespace PTC1002.Services.Repositories
             {
                 using (StreamWriter outputFile = File.AppendText(Path.Combine(Directory.GetCurrentDirectory(), "MyTextFile.txt")))
                 {
-                    outputFile.Write(string.Format("{0} - numeric,", RandomInteger()));
+                    //outputFile.Write(string.Format("{0} - numeric,", RandomInteger()));
+                    outputFile.Write(string.Format("{0},", RandomInteger()));
 
                 }
                 FileInfo fiNew = new FileInfo(Path.Combine(Directory.GetCurrentDirectory(), "MyTextFile.txt"));
@@ -49,7 +50,8 @@ namespace PTC1002.Services.Repositories
             {
                 using (StreamWriter outputFile = File.AppendText(Path.Combine(Directory.GetCurrentDirectory(), "MyTextFile.txt")))
                 {
-                    outputFile.Write(string.Format("{0} - float,", RandomFloat()));
+                    //outputFile.Write(string.Format("{0} - float,", RandomFloat()));
+                    outputFile.Write(string.Format("{0},", RandomFloat()));
 
                 }
                 FileInfo fiNew = new FileInfo(Path.Combine(Directory.GetCurrentDirectory(), "MyTextFile.txt"));
@@ -63,7 +65,8 @@ namespace PTC1002.Services.Repositories
             {
                 using (StreamWriter outputFile = File.AppendText(Path.Combine(Directory.GetCurrentDirectory(), "MyTextFile.txt")))
                 {
-                    outputFile.Write(string.Format("{0} - alphaNumeric,", RandomAlphaNumeric()));
+                    //outputFile.Write(string.Format("{0} - alphaNumeric,", RandomAlphaNumeric()));
+                    outputFile.Write(string.Format("{0},", RandomAlphaNumeric()));
 
                 }
                 FileInfo fiNew = new FileInfo(Path.Combine(Directory.GetCurrentDirectory(), "MyTextFile.txt"));
@@ -79,7 +82,8 @@ namespace PTC1002.Services.Repositories
         {
             Random random = new Random();
             return random.Next().ToString().ToLower();
-        }
+        }  
+       
         private string RandomFloat()
         {
             Random random = new Random();
@@ -104,13 +108,31 @@ namespace PTC1002.Services.Repositories
             string output = new string(Enumerable.Repeat(chars, 5).Select(s => s[random.Next(s.Length)]).ToArray());
             return RandomSpace() + output.ToString().ToLower() + RandomSpace();
         }
+        private long GetFileSizeString()
+        {
+            FileInfo info = new FileInfo(Path.Combine(Directory.GetCurrentDirectory(), "MyTextFile.txt"));
+            long size = info.Length;
+            return size;
+        }
         public ReportRandomNumberDto ViewRandomNumberReport()
         {
             ReportRandomNumberDto randomNumberDto = new ReportRandomNumberDto();
 
 
-            var listVal = System.IO.File.ReadAllText("MyTextFile.txt");
-            List<string> allVal = listVal.Split(',').ToList<string>();
+            List<string> allVal = new List<string>();
+            var input = System.IO.File.ReadAllText("MyTextFile.txt");
+            char[] inputString = input.ToCharArray();
+            string getSt;
+            int start = 0, i = 0;
+            for (i = 0; i < input.Length; i++)
+            {
+                if (input[i] == ',')
+                {
+                    getSt = input.Substring(start, i - start);
+                    start = i + 1;
+                    allVal.Add(getSt + CatagoryOf(getSt));
+                }
+            }
             var numericVal = allVal.Where(stringToCheck => stringToCheck.Contains(" - numeric")).ToList();
 
             randomNumberDto.NumericPerct = ((float)numericVal.Count() / (float)allVal.Count()) * 100;
@@ -123,9 +145,50 @@ namespace PTC1002.Services.Repositories
 
             randomNumberDto.FirstTwentyVal = allVal.Take(20).ToList();
             return randomNumberDto;
-
-
-
         }
+        public string CatagoryOf(string input)
+        {
+            if (input.IndexOf(' ') == 0)
+            {
+                return " - alphaNumeric";
+            }
+            //else if (input.IndexOf('.') >= 0)
+            //{
+            //    return " - real numbers";
+            //}
+            else
+            {
+                if (IsInteger(input))
+                {
+                    return " - numeric";
+                }
+                else
+                {
+                    return " - float";
+                }
+            }
+        }
+        private bool IsInteger(string input)
+        {
+            int counter = 0;
+            for (int i = 0; i < input.Length; i++)
+            {
+                if (input[i] == '0' || input[i] == '1' || input[i] == '2' || input[i] == '3' || input[i] == '4' || input[i] == '5' || input[i] == '6' || input[i] == '7' || input[i] == '8' || input[i] == '9')
+                {
+                    counter++;
+                }
+            }
+            if (counter < input.Length)
+            {
+                return false;
+            }
+            else
+                return true;
+        }
+        public void EmptyTextFile()
+        {
+            File.WriteAllText(Path.Combine(Directory.GetCurrentDirectory(), "MyTextFile.txt"), String.Empty);
+        }
+
     }
 }

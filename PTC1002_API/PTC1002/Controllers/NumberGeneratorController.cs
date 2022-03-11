@@ -35,6 +35,11 @@ namespace PTC1002.Controllers
 
             return proformaMst;
         }
+        [HttpGet("EmptyTextFile")]
+        public void EmptyTextFile()
+        {
+            _numberGeneratorRepository.EmptyTextFile();
+        }
 
     }
 }

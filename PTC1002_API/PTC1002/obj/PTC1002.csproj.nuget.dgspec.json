@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "G:\\InternetNow\\PTC1002\\PTC1002_API\\PTC1002\\PTC1002.csproj": {}
+    "G:\\InternetNow\\PTC1002\\internetnow_programming_test\\PTC1002_API\\PTC1002\\PTC1002.csproj": {}
   },
   "projects": {
-    "G:\\InternetNow\\PTC1002\\PTC1002_API\\PTC1002\\PTC1002.csproj": {
+    "G:\\InternetNow\\PTC1002\\internetnow_programming_test\\PTC1002_API\\PTC1002\\PTC1002.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\InternetNow\\PTC1002\\PTC1002_API\\PTC1002\\PTC1002.csproj",
+        "projectUniqueName": "G:\\InternetNow\\PTC1002\\internetnow_programming_test\\PTC1002_API\\PTC1002\\PTC1002.csproj",
         "projectName": "PTC1002",
-        "projectPath": "G:\\InternetNow\\PTC1002\\PTC1002_API\\PTC1002\\PTC1002.csproj",
+        "projectPath": "G:\\InternetNow\\PTC1002\\internetnow_programming_test\\PTC1002_API\\PTC1002\\PTC1002.csproj",
         "packagesPath": "C:\\Users\\Siam\\.nuget\\packages\\",
-        "outputPath": "G:\\InternetNow\\PTC1002\\PTC1002_API\\PTC1002\\obj\\",
+        "outputPath": "G:\\InternetNow\\PTC1002\\internetnow_programming_test\\PTC1002_API\\PTC1002\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

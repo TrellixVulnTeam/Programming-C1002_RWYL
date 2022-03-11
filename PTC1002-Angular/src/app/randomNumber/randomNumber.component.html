@@ -4,30 +4,37 @@
         <div class="row">
             <div class="col-md-1">
             </div>
-            <div class="col-md-3">
-                <input type="checkbox" id="numeric" name="numeric" value="numeric">
-                <label for="vehicle1"> Numeric</label><br>
-                <input type="checkbox" id="alphanumeric" name="alphanumeric" value="alphanumeric">
-                <label for="vehicle2"> Alphanumeric</label><br>
-                <input type="checkbox" id="float" name="float" value="float">
-                <label for="vehicle3"> Float</label><br><br>
+            <div class="col-md-2">
+                <label for="Numeric"> Numeric %</label>
+                <input type="text" id="numericP" class="form-control" name="numericP" [(ngModel)]="numericP">
+                <label for="Alphanumeric"> Alphanumeric %</label>
+                <input type="text" id="alphanumericP" class="form-control" name="alphanumericP" [(ngModel)]="alphanumericP">
+                <label for="Float"> Float %</label>
+                <input type="text" id="floatP" class="form-control" name="floatP" [(ngModel)]="floatP">
+            </div>
+            <div class="col-md-1">
+
+            </div>
+            <div class="col-md-1">
+
             </div>
             <div class="col-md-3">
                 <label for="application-no" class="control-label required">Size of the output file (KB)</label>
                 <input type="text" class="form-control" id="fileSize" name="fileSize" placeholder="Size of the output file" [(ngModel)]="fileSize">
             </div>
             <div class="col-md-3">
+
             </div>
         </div>
         <br/>
         <div class="row">
             <div class="col-md-1">
             </div>
-            <div class="col-md-1">
-                <button type="button" class="btn btn-sm btn-primary btn-embossed btn-add-product" style="float: right;  margin-right: 5px;" (click)="start()"><i class="fa fa-play"></i>&nbsp;&nbsp;Start</button>
+            <div class="col-md-3">
+                <button type="button" class="btn btn-sm btn-primary btn-embossed btn-add-product" style="float: right;width: 30%;" (click)="start()"><i class="fa fa-play"></i>&nbsp;&nbsp;Start</button>
             </div>
             <div class="col-md-1">
-                <button type="button" class="btn btn-sm btn-embossed btn-danger btn-add-product" style="float: right;" (click)="stop()"><i class="fa fa-stop" style="color: white;"></i>&nbsp;&nbsp;Stop</button>
+                <button type="button" class="btn btn-sm btn-embossed btn-danger btn-add-product" style="float: right;width: 110%;" (click)="stop()"><i class="fa fa-stop" style="color: white;"></i>&nbsp;&nbsp;Stop</button>
             </div>
         </div>
         <br/>
@@ -74,7 +81,7 @@
             <div class="col-md-2">
             </div>
             <div class="col-md-6">
-                <button type="button" class="btn btn-sm btn-success btn-embossed " (click)="viewReport()"><i class="fa fa-bar-chart"></i>&nbsp;&nbsp;Generate Report</button>
+                <button type="button" class="btn btn-sm btn-success btn-embossed " style="width: 50%;" (click)="viewReport()"><i class="fa fa-bar-chart"></i>&nbsp;&nbsp;Generate Report</button>
             </div>
         </div>
     </div>

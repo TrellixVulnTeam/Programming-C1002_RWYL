@@ -9,6 +9,9 @@ import { RandomNumberService } from '../_services/randomNumberServices';
 })
 export class RandomNumberComponent implements OnInit {
   fileSize: any;
+  numericP:any;
+  alphanumericP:any;
+  floatP:any;
   n: number = 1;
   floatCounter: number = 0;
   numCounter: number = 0;
@@ -17,8 +20,13 @@ export class RandomNumberComponent implements OnInit {
   constructor(private router: Router,private randomNumberService: RandomNumberService,) { }
 
   ngOnInit() {
+    this.randomNumberService.emptyTextFile().subscribe(resp => {
+    }, error => {
+      console.log(error);
+    });
   }
   async start() {
+    
     this.n=1;
     while (this.n == 1) {
       await this.randomNumberService.generateRandomNumber(this.fileSize).then(resp => {

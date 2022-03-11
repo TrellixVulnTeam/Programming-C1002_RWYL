@@ -10,6 +10,6 @@ namespace PTC1002.Services.Interfaces
     {
         RandomNumberDto GenerateRandomNumber(string fileSize);
         ReportRandomNumberDto ViewRandomNumberReport();
-        
+        void EmptyTextFile();
     }
 }
